@@ -15,7 +15,7 @@ angular.module('LunchCheck', [])
       //remove any empty items
 
       if (realItems.length > 3){
-        $scope.message = "Too much";
+        $scope.message = "Too much!";
       } else if (realItems.length == 0){
         $scope.message = "Please enter data first.";
       } else if (realItems.length <= 3){
