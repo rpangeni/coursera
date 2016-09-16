@@ -19,7 +19,7 @@ angular.module('LunchCheck', [])
       } else if (realItems.length == 0){
         $scope.message = "Please enter data first.";
       } else if (realItems.length <= 3){
-        $scope.message = "Enjoy!.";
+        $scope.message = "Enjoy!";
       }
   };
 }
