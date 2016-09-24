@@ -33,7 +33,8 @@ function ShoppingListCheckOffService() {
                     {name: "Bread loaves", quantity: "2"},
                     {name: "Soft drink bottles", quantity: "3"},
                     {name: "Carrot bags", quantity: "3"},
-                    {name: "Orange jiuce bottles", quantity: 2}];
+                    {name: "Orange jiuce bottles", quantity: 2},
+                    {name: "Buy toys for son", quantity: 300 }];
   var boughtItems = [];
 
 
