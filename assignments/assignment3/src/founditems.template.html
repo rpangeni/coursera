@@ -1,0 +1,9 @@
+<div class="form-group">
+  <ul>
+    <li ng-repeat="item in $ctrl.foundItems">
+       {{item.name}}, {{item.short_name}}, {{item.description}}
+       <button ng-click="$crtl.remove($index);">Remove item</button>
+    </li>
+  </ul>
+</div>
+<div class="error">{{$ctrl.errorMessage}}</div>
