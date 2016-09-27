@@ -14,9 +14,9 @@ function FoundItemsDirective(){
          items: '<',
          onRemove: '&'
       },
-        // controller: FoundItemsDirectiveController,
-        // controllerAs: 'list',
-        // bindToController: true,
+        //  controller: FoundItemsDirectiveController,
+        //  controllerAs: 'list',
+        //  bindToController: true,
          link: FoundItemsDirectiveLink,
          transclude: true
      };
@@ -28,17 +28,6 @@ function FoundItemsDirective(){
    var list = this;
  }
 
-function FoundItemsDirectiveLink(scope, element,attr, controller){
-  console.log(scope);
-  scope.$watch('nidctrl.items', function (newValue, oldValue){
-      if (newValue){
-         element.find("div.error").slideDown(900);
-      }
-      else{
-        element.find("div.error").slideUp(900);
-      }
-  });
-}
 
 NarrowItDownController.$Inject = ['MenuSearchService']
 function NarrowItDownController(MenuSearchService){
@@ -77,6 +66,18 @@ function NarrowItDownController(MenuSearchService){
   nidctrl.removeItem = function (itemIndex){
     nidctrl.items.splice(itemIndex,1);
   }
+}
+
+function FoundItemsDirectiveLink(scope, element,attr, controller){
+  console.log(scope);
+  scope.$watch('items', function (newValue, oldValue){
+      if (newValue){
+         element.find("div.error").slideDown(900);
+      }
+      else{
+        element.find("div.error").slideUp(900);
+      }
+  });
 }
 
 MenuSearchService.$inject = ['$http', 'ApiBasePath']
