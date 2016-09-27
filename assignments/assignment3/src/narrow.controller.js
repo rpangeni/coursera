@@ -13,12 +13,12 @@ function FoundItemsDirective(){
       scope: {
          items: '<',
          onRemove: '&'
-      }//,
+      },
         // controller: FoundItemsDirectiveController,
         // controllerAs: 'list',
         // bindToController: true,
-        // link: FoundItemsDirectiveLink,
-        // transclude: true
+         link: FoundItemsDirectiveLink,
+         transclude: true
      };
 
      return ddo;
@@ -30,12 +30,12 @@ function FoundItemsDirective(){
 
 function FoundItemsDirectiveLink(scope, element,attr, controller){
   console.log(scope);
-  scope.$watch('nidctrl.errorMessage', function (newValue, oldValue){
+  scope.$watch('nidctrl.items', function (newValue, oldValue){
       if (newValue){
-         //element.find("div.error").slideDown(900);
+         element.find("div.error").slideDown(900);
       }
       else{
-        //element.find("div.error").slideUp(900);
+        element.find("div.error").slideUp(900);
       }
   });
 }
