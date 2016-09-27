@@ -9,6 +9,9 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.menu-list {
+  float: left;
+}
 .error {
   color: red;
   display: none;

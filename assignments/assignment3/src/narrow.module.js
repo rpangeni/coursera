@@ -1,6 +1,6 @@
-(function () {
-'use strict';
-
-angular.module('NarrowItDownApp', []);
-
-})();
+// (function () {
+// 'use strict';
+//
+// angular.module('NarrowItDownApp', []);
+//
+// })();

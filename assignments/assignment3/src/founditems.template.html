@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="menu-list">
   <ul>
-    <li ng-repeat="item in $ctrl.foundItems">
-       {{item.name}}, {{item.short_name}}, {{item.description}}
-       <button ng-click="$crtl.remove($index);">Remove item</button>
+    <li ng-repeat="item in items">
+       {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+       <button class="btn btn-danger" ng-click="onRemove({index: $index});">Remove item</button>
     </li>
   </ul>
 </div>
-<div class="error">{{$ctrl.errorMessage}}</div>
+<!--div class="error" ng-transclude></div -->

@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="styles/font-awesome.min.css">
     <link rel="stylesheet" href="styles/styles.css">
   </head>
-<body ng-controller="NarrowItDownController as nidctrl">
-   <div class="container" >
+<body>
+   <div class="container" ng-controller="NarrowItDownController as nidctrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" ng-model="ctrl.searchText" class="form-control">
+      <input type="text" placeholder="search term" ng-model="nidctrl.searchText" class="form-control">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="ctrl.find()">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="nidctrl.find()">Narrow It Down For Me!</button>
     </div>
 
 
@@ -24,7 +24,9 @@
     <items-loader-indicator></items-loader-indicator>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <found-items items="nidctrl.items" on-remove="nidctrl.removeItem(index)">
+      <!-- div> {{nidctrl.errorMessage}}</div -->>
+    </found-items>
   </div>
 
   <script src="lib/angular.min.js"></script>
