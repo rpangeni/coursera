@@ -25,14 +25,12 @@
 
     <!-- found-items should be implemented as a component -->
     <found-items items="nidctrl.items" on-remove="nidctrl.removeItem(index)">
-      <div> {{nidctrl.errorMessage}}</div>
+      <span class="menu-list"> {{nidctrl.errorMessage}}</div>
     </found-items>
   </div>
 
   <script src="lib/jquery-3.1.0.min.js"></script>
   <script src="lib/angular.min.js"></script>
-  <script src="src/narrow.module.js"></script>
-  <script src="src/menusearch.service.js"></script>
   <script src="src/narrow.controller.js"></script>
 </body>
 </html>

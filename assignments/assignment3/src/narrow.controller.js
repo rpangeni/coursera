@@ -5,7 +5,7 @@ angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .directive("foundItems", FoundItemsDirective)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com");
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
 function FoundItemsDirective(){
     var ddo = {
@@ -72,10 +72,10 @@ function FoundItemsDirectiveLink(scope, element,attr, controller){
   console.log(scope);
   scope.$watch('items', function (newValue, oldValue){
       if (newValue){
-         element.find("div.error").slideDown(900);
+         element.find("span.error").slideDown(900);
       }
       else{
-        element.find("div.error").slideUp(900);
+        element.find("span.error").slideUp(900);
       }
   });
 }

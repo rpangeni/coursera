@@ -1,9 +1,11 @@
-<div class="menu-list">
-  <ul>
-    <li ng-repeat="item in items">
-       {{ item.name }}, {{ item.short_name }}, {{ item.description }}
-       <button class="btn btn-danger" ng-click="onRemove({index: $index});">Remove item</button>
-    </li>
+<div class="menu-list table-responsive row container">
+  <table class="table">
+    <tr ng-repeat="item in items">
+       <td>{{ item.name }}</td> <td>{{ item.short_name }}</td><td> {{ item.description }}</td>
+       <td><button class="btn btn-danger" ng-click="onRemove({index: $index});">Don't want this one!</button></td>
+    </tr>
   </ul>
 </div>
-<div class="error" ng-transclude></div>
+<div class="row">
+<span class="error" ng-transclude></div>
+</div>
