@@ -14,3 +14,10 @@ div.tabs {
 .activeTab {
   font-weight: bold;
 }
+
+/*.row :nth-child(even){
+  background-color: #7f7ffF;
+}*/
+/*.row :nth-child(odd){
+  background-color: #00FF00;
+}*/

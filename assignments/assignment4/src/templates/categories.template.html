@@ -1,0 +1,13 @@
+<a ui-sref="home">Home</a>
+
+<h1>Menu categories</h1>
+
+<div class="menu-list table-responsive row container">
+  <table class="table">
+    <tbody>
+    <tr ng-repeat="c in catCtrl.categories">
+       <td> <a ui-sref="items({category: c.short_name})">{{ c.name }} </a></td>       
+    </tr>
+  </tbody>
+  </ul>
+</div>
