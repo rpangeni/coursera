@@ -1,23 +1,81 @@
-<div class="container">
-	 <div class="row">First Name: <input type="text" ng-model="singupCtrl.firstname"
-		 class="form-control" placeholder="firstname"
-		 		  required
-          minlength="4"
-          ng-maxlength="100">
-				</div> <br>
-	 <div class="row">Last Name: <input type="text" ng-model="singupCtrl.lastname" class="form-control"></div><br>
-	 <div class="row">email address: <input type="email" ng-model="singupCtrl.email" class="form-control"></div> <br>
-	 <div class="row">phone number: <input type="text" ng-model="singupCtrl.phonenumber" class="form-control"></div> <br>
-	 <div class="row">What is your favourite dish?
-		 <input type="text" ng-model="signupCtrl.favdish" class="form-control"></div><br><br>
-		 <div class="row">
-		 <input type="text" name="phone" placeholder="Phone ###-###-####"
-          ng-model="reg.user.phone"
-          pattern="(\d{3})-(\d{3})-(\d{4})" class="form-control">
-          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
-            Phone must be in the format ###-###-####.
-          </span>
+<div class="registration">
+
+	<fieldset>	
+	<h1 class="text-center">Registration</h1>
+	<form name='regForm' novalidate>
+   <div class="form-group">
+		 <label>First name</label>
+		<input type="text" name="firstname" placeholder="Enter your first name"
+			ng-model="singupCtrl.firstname"
+			required
+			minlength="4"
+			class="form-control">
+			<span
+				ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+				The first name must be at least 4 characters long
+			</span>
 		</div>
-          <br>
-	 <div class="row"> <button   class="btn btn-lg btn-primary" type="button" ng-click="singupCtrl.register()">Submit</button></div>
-</div>
+			<div class="form-group">
+			<label>Last name</label>
+			<input type="text" name="lastname" placeholder="Enter your last name"
+				ng-model="singupCtrl.lastname"
+				required
+				minlength="4"
+				class="form-control">
+				<span
+					ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+					The first name must be at least 4 characters long
+				</span>
+			</div>
+
+		<div class="form-group">
+			<label>email</label>
+		<input type="email" name="email" placeholder="Email"
+			ng-model="singupCtrl.email"
+			required class="form-control">
+			<span ng-if="regForm.email.$invalid && regForm.email.$touched">
+				Must be a valid email address: handle@domain format
+			</span>
+		</div>
+
+		<div class="form-group">
+			<label>Phone</label>
+		<input type="text" name="phone" placeholder="Phone ###-###-####"
+			class="form-control"
+			pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="singupCtrl.phonenumber">
+			<span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+				Phone must be in the format ###-###-####.
+			</span>
+		</div>
+
+		<div class="form-group">
+			<label>Favourite Food</label>
+			<input type="text" name="favdish" placeholder="Enter your favourite dish"
+				ng-model="singupCtrl.favdish"
+				required
+				minlength="2"
+				class="form-control">
+				<span
+					ng-if="(regForm.favdish.$error.minlength || regForm.favdish.$error.required)
+					 && regForm.favdish.$touched">
+					The first name must be at least 4 characters long
+				</span>
+			</div>
+
+
+		<button class="btn btn-lg btn-primary"
+			ng-disabled="regForm.$invalid"
+			ng-click="signupCtrl.submit()">Submit</button>
+
+	</form>
+	</fieldset>
+
+	<div id="info" ng-if="signupCtrl.completed">
+		Your information has been saved.
+	</div>
+	<div id="info" ng-if="signupCtrl.notFound">
+		No such menu number exists
+	</div>
+
+
+ </div>
