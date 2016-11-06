@@ -27,6 +27,27 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getAllShortName = function () {
+    return $http.get(ApiPath +'/menu_items.json'). then(function(response) {
+      return response.data.menu_items.map(function (item, index) {
+        return item.short_name;
+      });
+    });
+  };
+
+  service.getAllItems = function () {
+    return $http.get(ApiPath +'/menu_items.json'). then(function(response) {
+      return response.data.menu_items;
+      });
+    };
+  
+
+  service.getMenuItem = function(shortname) {
+    return $http.get(ApiPath +'/menu_items/' + shortname + '.json').then(function(response) {
+      return response.data;
+      });
+    };
+
 }
 
 

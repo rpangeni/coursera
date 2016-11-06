@@ -8,6 +8,11 @@
   width: 300px;
   margin: 0 auto;
 }
+
+.user-info {
+  width: 300px;
+  margin: 0 auto;
+}
 #menu-tile, #specials-tile, #map-tile {
   height: 250px;
   width: 100%;

@@ -29,7 +29,7 @@ function routeConfig ($stateProvider) {
           return MenuService.getCategories();
         }]
       }
-    })    
+    })
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',
@@ -45,13 +45,23 @@ function routeConfig ($stateProvider) {
       url: '/signup',
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignupController',
-      controllerAs: 'signupCtrl'
-      //,
-      //resolve: {
-      //  menuCategories: ['MenuService', function (MenuService) {
-       //   return MenuService.getCategories();
-       // } ]
-      //}
-    });
+      controllerAs: 'signupCtrl'      ,
+      resolve: {
+       shortNames: ['MenuService', function (MenuService) {
+         return MenuService.getAllShortName();
+       } ]
+      }
+    })
+    .state('public.userinfo', {
+     url: '/userinfo',
+     templateUrl: 'src/public/info/user-info.html',
+     controller: 'InfoController',
+     controllerAs: 'infoCtrl'  ,
+     resolve: {
+      menuItems: ['MenuService', function (MenuService) {
+        return MenuService.getAllItems();
+      } ]
+     }
+   });
 }
 })();

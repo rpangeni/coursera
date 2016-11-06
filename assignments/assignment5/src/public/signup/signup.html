@@ -1,37 +1,37 @@
 <div class="registration">
 
-	<fieldset>	
+	<fieldset>
 	<h1 class="text-center">Registration</h1>
 	<form name='regForm' novalidate>
    <div class="form-group">
 		 <label>First name</label>
 		<input type="text" name="firstname" placeholder="Enter your first name"
-			ng-model="singupCtrl.firstname"
+			ng-model="signupCtrl.firstname"
 			required
-			minlength="4"
+			minlength="1"
 			class="form-control">
 			<span
 				ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
-				The first name must be at least 4 characters long
+				The first name cannot be empty
 			</span>
 		</div>
 			<div class="form-group">
 			<label>Last name</label>
 			<input type="text" name="lastname" placeholder="Enter your last name"
-				ng-model="singupCtrl.lastname"
+				ng-model="signupCtrl.lastname"
 				required
-				minlength="4"
+				minlength="1"
 				class="form-control">
 				<span
 					ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
-					The first name must be at least 4 characters long
+					The last name cannot be empty
 				</span>
 			</div>
 
 		<div class="form-group">
 			<label>email</label>
 		<input type="email" name="email" placeholder="Email"
-			ng-model="singupCtrl.email"
+			ng-model="signupCtrl.email"
 			required class="form-control">
 			<span ng-if="regForm.email.$invalid && regForm.email.$touched">
 				Must be a valid email address: handle@domain format
@@ -42,7 +42,7 @@
 			<label>Phone</label>
 		<input type="text" name="phone" placeholder="Phone ###-###-####"
 			class="form-control"
-			pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="singupCtrl.phonenumber">
+			pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="signupCtrl.phone">
 			<span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
 				Phone must be in the format ###-###-####.
 			</span>
@@ -51,14 +51,13 @@
 		<div class="form-group">
 			<label>Favourite Food</label>
 			<input type="text" name="favdish" placeholder="Enter your favourite dish"
-				ng-model="singupCtrl.favdish"
+				ng-model="signupCtrl.favdish"
 				required
 				minlength="2"
 				class="form-control">
 				<span
-					ng-if="(regForm.favdish.$error.minlength || regForm.favdish.$error.required)
-					 && regForm.favdish.$touched">
-					The first name must be at least 4 characters long
+					ng-if="regForm.favdish.$touched && !signupCtrl.isValidFavoriteDish()">
+					The favourite food must be from list of Short-names like A1 etc.
 				</span>
 			</div>
 
@@ -72,9 +71,6 @@
 
 	<div id="info" ng-if="signupCtrl.completed">
 		Your information has been saved.
-	</div>
-	<div id="info" ng-if="signupCtrl.notFound">
-		No such menu number exists
 	</div>
 
 
