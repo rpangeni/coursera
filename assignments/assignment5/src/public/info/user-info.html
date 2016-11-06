@@ -3,12 +3,14 @@
     <div class="text-center">
         <div>
         First name: {{infoCtrl.userInfo.firstname}}
-      </div>
+      </div class="centeredblock">
         <div>Last name:  {{infoCtrl.userInfo.lastname}}</div>
         <div>Phone number: {{infoCtrl.userInfo.phone}}</div>
         <div>Email:  {{infoCtrl.userInfo.email}}</div>
         <div>
-          Favourite dish: {{infoCtrl.favItem.name}} {{infoCtrl.favItem.description}}
+          Favourite dish:
+          <div> name: {{infoCtrl.favItem.name}}</div>
+          <div> description:  {{infoCtrl.favItem.description}} </div>
         <img class="img-responsive" width="250" height="150"
         ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.userInfo.favdish}}.jpg" alt="{{infoCtrl.userInfo.favdish}}">
       </div>

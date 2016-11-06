@@ -18,7 +18,10 @@ function InfoController( menuItems, UserInfoService, ApiPath) {
       return true;
     }
     else{
-      //infoCtrl.favItem = MenuService.getMenuItem(infoCtrl.userInfo.favdish);
+       var favItems = infoCtrl.menuItems.filter(function(item) {
+        return item.short_name == userInfo.favdish;
+      });
+      infoCtrl.favItem = favItems[0];
       return false;
     }
   };
